@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كورس البرزنتيشن الناجح - لطلاب الصف 12</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #FFFFFF;
+            color: #2D1B4E;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translate3d(80px, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translate3d(-80px, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.92, 0.92, 1);
+            }
+            to {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale3d(1, 1, 1);
+            }
+            50% {
+                transform: scale3d(1.05, 1.05, 1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -10px, 0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale3d(1.05, 1.05, 1);
+            }
+            70% {
+                transform: scale3d(0.9, 0.9, 1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+        }
+
+        .slide-right.animated {
+            animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .slide-left.animated {
+            animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .fade-up.animated {
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .scale-in.animated {
+            animation: scaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .bounce-in.animated {
+            animation: bounceIn 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .stagger-delay-1 { animation-delay: 0.1s; }
+        .stagger-delay-2 { animation-delay: 0.2s; }
+        .stagger-delay-3 { animation-delay: 0.3s; }
+        .stagger-delay-4 { animation-delay: 0.4s; }
+        .stagger-delay-5 { animation-delay: 0.5s; }
+        .stagger-delay-6 { animation-delay: 0.6s; }
+
+        .hover-zoom {
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hover-zoom img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+
+        .hover-zoom:hover img {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+
+        .cta-button {
+            animation: pulse 2.5s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cta-button:active {
+            transform: scale3d(0.95, 0.95, 1);
+        }
+
+        .discount-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .countdown-bar {
+            background: linear-gradient(135deg, #2D1B4E 0%, #4A2D7C 100%);
+            color: #FFD93D;
+            padding: 10px 16px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(45, 27, 78, 0.2);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .countdown-bar p {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .countdown-timer {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 900;
+            color: #FFD93D;
+            margin-right: 8px;
+            letter-spacing: 1px;
+        }
+
+        .header {
+            background: #FFFFFF;
+            padding: 10px 10px 10px;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto 20px;
+        }
+
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 1px;
+            text-align: center;
+        }
+
+        .course-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2D1B4E;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .course-subtitle {
+            font-size: 15px;
+            color: #4A2D7C;
+            max-width: 100%;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD93D 0%, #FFC107 100%);
+            color: #2D1B4E;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 217, 61, 0.4);
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale3d(1.02, 1.02, 1);
+            box-shadow: 0 6px 16px rgba(255, 217, 61, 0.5);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #2D1B4E;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFD93D, #FFC107);
+            border-radius: 2px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .problem-card {
+            background: #F8F6FC;
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #4A2D7C;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .problem-card:hover {
+            transform: translate3d(-5px, 0, 0);
+            box-shadow: 0 4px 12px rgba(74, 45, 124, 0.12);
+        }
+
+        .problem-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #2D1B4E, #4A2D7C);
+            color: #FFD93D;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 800;
+            margin-left: 12px;
+            font-size: 15px;
+        }
+
+        .problem-text {
+            display: inline;
+            font-size: 15px;
+            color: #2D1B4E;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .video-container {
+            max-width: 100%;
+            margin: 10px auto;
+            padding: 0 10px;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2D1B4E, #4A2D7C);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFD93D;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(45, 27, 78, 0.25);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .video-placeholder:hover {
+            transform: scale3d(1.02, 1.02, 1);
+        }
+  
+        .teacher-section {
+            background: #F8F6FC;
+            padding: 40px 16px;
+            margin: 40px 0;
+        }
+
+        .teacher-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .teacher-image {
+            width: 180px;
+            height: 180px;
+            display: block;
+            margin: 0 auto ;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .teacher-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .teacher-list li {
+            padding: 10px 0;
+            font-size: 15px;
+            color: #4A2D7C;
+            font-weight: 500;
+            position: relative;
+            padding-right: 24px;
+            line-height: 1.5;
+        }
+
+        .teacher-list li:before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #FFD93D;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+        
+        
+        .video-placeholder {
+    width: 80%;
+    max-width: 600px; /* limits size on large screens */
+    aspect-ratio: 16 / 9; /* keeps video proportion */
+    background: linear-gradient(135deg, #2D1B4E, #4A2D7C);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(45, 27, 78, 0.25);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 0 auto; /* centers on page */
+}
+
+/* make the video fill the box */
+.video-placeholder video {
+    width: 80%;
+    height:80%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* small screen (phones) adjustments */
+@media (max-width: 600px) {
+    .video-placeholder {
+        max-width: 80%;
+        aspect-ratio: 9 / 16; /* vertical for phones */
+        border-radius: 12px;
+    }
+}
+
+
+        .lesson-card {
+            background: #FFFFFF;
+            border: 2px solid #E8E3F3;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(45, 27, 78, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .lesson-card:hover {
+            transform: translate3d(0, -5px, 0);
+            box-shadow: 0 8px 20px rgba(45, 27, 78, 0.12);
+        }
+
+        .lesson-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #E8E3F3, #F8F6FC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #4A2D7C;
+            font-weight: 600;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lesson-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .lesson-content {
+            padding: 20px;
+        }
+
+        .lesson-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #2D1B4E;
+            margin-bottom: 16px;
+        }
+
+        .lesson-points {
+            list-style: none;
+        }
+
+        .lesson-points li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4A2D7C;
+            position: relative;
+            padding-right: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .lesson-points li:before {
+            content: '●';
+            position: absolute;
+            right: 0;
+            color: #FFD93D;
+            font-size: 10px;
+        }
+
+        .bonus-box {
+            background: linear-gradient(135deg, #FFD93D, #FFC107);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 217, 61, 0.35);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .bonus-box:hover {
+            transform: scale3d(1.02, 1.02, 1);
+        }
+
+        .bonus-box h3 {
+            color: #2D1B4E;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .bonus-box p {
+            color: #2D1B4E;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .results-section {
+            background: linear-gradient(135deg, #2D1B4E, #4A2D7C);
+            padding: 40px 16px;
+            margin: 40px 0;
+            color: #FFFFFF;
+        }
+
+        .results-grid {
+            max-width: 1000px;
+            margin: 30px auto 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 217, 61, 0.3);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .result-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translate3d(-5px, 0, 0);
+        }
+
+        .result-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #FFD93D;
+            color: #2D1B4E;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 800;
+            margin-left: 12px;
+            font-size: 15px;
+        }
+
+        .result-text {
+            display: inline;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .pricing-section {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            padding: 32px 16px;
+            background: #F8F6FC;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(45, 27, 78, 0.08);
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD93D, #FFC107);
+            color: #2D1B4E;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(255, 217, 61, 0.4);
+        }
+
+        .price-original {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .price-current {
+            font-size: 32px;
+            color: #2D1B4E;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .price-highlight {
+            color: #4A2D7C;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .faq-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        .faq-item {
+            background: #F8F6FC;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border-right: 3px solid #4A2D7C;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .faq-item:hover {
+            background: #F0ECF9;
+            transform: translate3d(-5px, 0, 0);
+        }
+
+        .faq-question {
+            font-size: 15px;
+            font-weight: 800;
+            color: #2D1B4E;
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: #4A2D7C;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #2D1B4E, #4A2D7C);
+            padding: 10px 16px;
+            text-align: center;
+            z-index: 999;
+            left: 0;
+            right: 0;
+            box-shadow: 0 -2px 12px rgba(45, 27, 78, 0.25);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .sticky-cta .cta-button {
+            margin: 0;
+            font-size: 14px;
+            padding: 10px 24px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .final-cta-section {
+            text-align: center;
+            padding: 40px 16px;
+            background: linear-gradient(135deg, #F8F6FC, #E8E3F3);
+            border-radius: 16px;
+            margin: 40px 16px 80px;
+        }
+
+        .final-cta-section h2 {
+            font-size: 22px;
+            color: #2D1B4E;
+            margin-bottom: 16px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .final-cta-section .price-row {
+            margin: 20px 0;
+        }
+
+        .final-cta-section .price-original {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .final-cta-section .price-current {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta-section .cta-button {
+            font-size: 16px;
+            padding: 14px 32px;
+        }
+
+        @media (min-width: 768px) {
+            .course-title {
+                font-size: 36px;
+            }
+
+            .course-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            
+
+            .cta-button {
+                font-size: 18px;
+                padding: 16px 40px;
+            }
+
+            .sticky-cta .cta-button {
+                font-size: 16px;
+                width: auto;
+            }
+
+            .lessons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .teacher-image {
+                width: 250px;
+                height: 250px;
+                border-radius: 15px;
+            }
+
+            .logo {
+                max-width: 180px;
+            }
+
+            .lesson-image {
+                height: 160px;
+            }
+
+            .final-cta-section .cta-button {
+                font-size: 18px;
+                padding: 16px 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-bar">
+        <p>⏰ العرض ينتهي بعد: <span class="countdown-timer" id="countdown">24:00:00</span></p>
+    </div>
+
+    <div class="header animate-on-scroll fade-up">
+        <img src="logo.jpg" class="teacher-image" alt="شعار الكورس">
+    </div>
+
+    <div class="hero-section">
+        <h1 class="course-title animate-on-scroll fade-up">🎓 كورس البرزنتيشن الناجح<br>لطلاب الصف 12</h1>
+        
+        <p class="course-subtitle animate-on-scroll fade-up stagger-delay-1">
+            هذا الكورس العملي يمكّنك من تقديم برزنتيشن متكامل بثقة، من الإعداد حتى التقديم أمام الأستاذ، مع التغلب على مشاكل النسيان وترتيب المحتوى والتدريب العملي.
+        </p>
+
+        <a href="https://wa.me/message/NM3URLIEO45IG1" class="cta-button animate-on-scroll bounce-in stagger-delay-2">احجز مقعدك الآن 🚀</a>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title animate-on-scroll fade-up">🚨 لمن هذا الكورس؟</h2>
+        <div class="problems-grid">
+            <div class="problem-card animate-on-scroll fade-up stagger-delay-1">
+                <span class="problem-number">1</span>
+                <span class="problem-text">للطالب اللي يعرف يجهز العرض ولكن ينسى كل الكلام لما يجي وقت التقديم</span>
+            </div>
+            <div class="problem-card animate-on-scroll fade-up stagger-delay-2">
+                <span class="problem-number">2</span>
+                <span class="problem-text">للطالب اللي ما يعرف من وين يبدأ أو كيف يرتب الأفكار</span>
+            </div>
+            <div class="problem-card animate-on-scroll fade-up stagger-delay-3">
+                <span class="problem-number">3</span>
+                <span class="problem-text">للطالب اللي يحتاج حد يراجع البرزنتيشن ماله بعد ما يجهزه ويرد عليه</span>
+            </div>
+        </div>
+    </div>
+<div class="" style="display: flex; justify-content: center; align-items: center;">
+  <div class="animate-on-scroll scale-in" style="background: transparent;">
+    <iframe 
+      width="100%" 
+      height="100%" 
+      style="border-radius: 16px; border: none;"
+      src="https://www.youtube.com/embed/RXCgpttEY_Q?autoplay=1&mute=1&loop=1&playlist=RXCgpttEY_Q"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+    <div class="teacher-section">
+        <div class="teacher-content">
+            <h2 class="section-title animate-on-scroll fade-up">👨‍🏫 من هو الأستاذ؟</h2>
+            <div class="hover-zoom animate-on-scroll bounce-in stagger-delay-1">
+                <img src="teacher.jpg" class="teacher-image" alt="صورة الأستاذ">
+            </div>
+            <ul class="teacher-list">
+                <li class="animate-on-scroll fade-up stagger-delay-2">خريج جامعة السلطان قابوس، تخصص لغة إنجليزية</li>
+                <li class="animate-on-scroll fade-up stagger-delay-3">درس طلاب الثانوية لعدة سنوات</li>
+                <li class="animate-on-scroll fade-up stagger-delay-4">قدّم كورسات في اللغة الإنجليزية والآيلتس في معهد تالنتو</li>
+                <li class="animate-on-scroll fade-up stagger-delay-5">ساعد أكثر من 500 طالب في تحسين مستواهم في اللغة الإنجليزية</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title animate-on-scroll fade-up">📘 ماذا ستتعلم في الكورس؟</h2>
+        <div class="lessons-grid">
+            <div class="lesson-card animate-on-scroll slide-right">
+                <div class="lesson-image hover-zoom">
+                    <img src="n.jpg" alt="صورة من الدرس النظري">
+                </div>
+                <div class="lesson-content">
+                    <h3 class="lesson-title">الدرس الأول (النظري)</h3>
+                    <ul class="lesson-points">
+                        <li>كتابة المقدمة والخاتمة باحترافية</li>
+                        <li>أهم معايير التقييم من قبل المعلم</li>
+                        <li>ترتيب الأفكار بطريقة واضحة ومؤثرة</li>
+                        <li>أهم مهارات لغة الجسد ونبرة الصوت</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson-card animate-on-scroll slide-left">
+                <div class="lesson-image hover-zoom">
+                    <img src="t.jpg" alt="صورة من الدرس التطبيقي">
+                </div>
+                <div class="lesson-content">
+                    <h3 class="lesson-title">الدرس الثاني (التطبيقي)</h3>
+                    <ul class="lesson-points">
+                        <li>الأستاذ يتخذ دور الطالب ويطبق البرزنتيشن بالكامل أمامك</li>
+                        <li>تطبيق عملي خطوة بخطوة من البداية للنهاية</li>
+                        <li>الهدف: مشاهدة التطبيق العملي الصحيح</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bonus-box animate-on-scroll bounce-in">
+            <h3>🎁 هدية إضافية</h3>
+            <p>قالب جاهز يساعدك لتقديم البرزنتيشن + مراجعة
+  
+مباشرة من الأستاذ بعد تجهيزك للبرزنتيشن</p>
+        </div>
+    </div>
+
+    <div class="results-section">
+        <div class="section">
+            <h2 class="section-title animate-on-scroll fade-up" style="color: #FFD93D;">💰 النتائج التي ستحققها</h2>
+            <div class="results-grid">
+                <div class="result-card animate-on-scroll fade-up stagger-delay-1">
+                    <span class="result-number">1</span>
+                    <span class="result-text">الثقة أثناء التقديم أمام الأستاذ</span>
+                </div>
+                <div class="result-card animate-on-scroll fade-up stagger-delay-2">
+                    <span class="result-number">2</span>
+                    <span class="result-text">التخلص من النسيان والتوتر</span>
+                </div>
+                <div class="result-card animate-on-scroll fade-up stagger-delay-3">
+                    <span class="result-number">3</span>
+                    <span class="result-text">تحسين طريقة التنظيم والعرض</span>
+                </div>
+                <div class="result-card animate-on-scroll fade-up stagger-delay-4">
+                    <span class="result-number">4</span>
+                    <span class="result-text">استخدام القالب الجاهز لتوفير الوقت</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-section animate-on-scroll scale-in">
+        <h2 class="section-title">🎯 عرض خاص ومحدود</h2>
+        
+        <div class="discount-badge">وفر 65%</div>
+        
+        <p class="price-original">السعر الأصلي: 7.9ر.ع</p>
+        <p class="price-current">سعر العرض: 2.9ر.ع</p>
+        <p class="price-highlight">فقط لفترة محدودة!</p>
+        <a href="https://wa.me/message/NM3URLIEO45IG1" class="cta-button">سجل الآن واستفد من العرض 🔥</a>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="section-title animate-on-scroll fade-up">❓ الأسئلة الشائعة</h2>
+        
+        <div class="faq-item animate-on-scroll fade-up stagger-delay-1">
+            <div class="faq-question">هل الكورس مسجل أم مباشر؟</div>
+            <div class="faq-answer">مسجل ويمكنك مشاهدته في أي وقت</div>
+        </div>
+
+        <div class="faq-item animate-on-scroll fade-up stagger-delay-2">
+            <div class="faq-question">هل سأحصل على متابعة من الأستاذ؟</div>
+            <div class="faq-answer">نعم، بعد رفع عرضك سيتم مراجعته والرد عليك</div>
+        </div>
+
+        <div class="faq-item animate-on-scroll fade-up stagger-delay-3">
+            <div class="faq-question">كم مدة الكورس؟</div>
+            <div class="faq-answer">درس نظري + درس عملي + قالب جاهز مع تدريب عملي للطالب</div>
+        </div>
+    </div>
+
+    <div class="final-cta-section animate-on-scroll bounce-in" id="register">
+        <h2>فرصتك الآن لتحترف صناعة البرزنتيشن الناجح بكل ثقة 🎯</h2>
+        
+        <div class="price-row">
+            <p class="price-original">السعر الأصلي: 7.9ر.ع</p>
+            <p class="price-current">سعر العرض: 2.9ر.ع</p>
+        </div>
+        
+        <a href="https://wa.me/message/NM3URLIEO45IG1" class="cta-button" style="font-size: 18px; padding: 16px 48px;">🔗 احجز مقعدك الآن</a>
+    </div>
+
+    <div class="sticky-cta">
+        <a href="https://wa.me/message/NM3URLIEO45IG1" class="cta-button">احجز مقعدك الآن - 2.9ر.ع فقط 🚀</a>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            let totalSeconds = 24 * 60 * 60;
+
+            setInterval(() => {
+                const hours = Math.floor(totalSeconds / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+
+                countdownElement.textContent = 
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                totalSeconds--;
+
+                if (totalSeconds < 0) {
+                    totalSeconds = 24 * 60 * 60;
+                }
+            }, 1000);
+        }
+
+        updateCountdown();
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
